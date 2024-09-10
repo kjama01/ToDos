@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+}
+#all{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#panel{
+    width: 100%;
+    height: 90px;
+    background-color: rgb(65, 65, 65);
+}
+#bottom{
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) 6fr;
+    flex-grow: 1;
+}
+#leftpanel{
+    background-color: grey;
+}
+#rightpanel{
+    background-color: rgb(213, 213, 213);
+}
+#upperpanel{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 30px;
+}
+#downpanel{
+    display:flex;
+    flex-direction: column;
+    padding: 30px;
+}
+#downpanel>div{
+    margin-bottom: 5px;
+}
+#downpanel>h1{
+    margin-bottom: 20px;
+}
+
+.inbox-button,.today-button,.thisweek-button,.add-project{
+    text-align: left;
+    min-width: 10vw;
+    height: 35px;
+    font-size: 17px;
+    border: none;
+    background: none;
+    white-space: nowrap;
+}
+.inbox-button:hover,.today-button:hover,.thisweek-button:hover,.add-project:hover{
+background-color: rgb(78, 76, 76);
+}
+#projects-list{
+    display: flex;
+    flex-direction: column;
+}
+.project-name-button{
+    text-align: left;
+    min-width: 10vw;
+    height: 35px;
+    font-size: 17px;
+    border: none;
+    background: none;
+    white-space: nowrap;
+}
+#rightpanel{
+    padding: 80px;
+}
+.addTaskButton{
+    border: none;
+    background: none;
+}
+.addTaskButton:hover{
+    background-color: grey;
+    width: 150px;
+    height: 20px;
+    text-align: left;
+}
+.popupdiv-closed{
+    display: none;
+}
+.popupdiv-open{
+    display: block;
+}
