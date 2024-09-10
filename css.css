@@ -40,7 +40,6 @@ body{
 #downpanel>h1{
     margin-bottom: 20px;
 }
-
 .inbox-button,.today-button,.thisweek-button,.add-project{
     text-align: left;
     min-width: 10vw;
@@ -73,15 +72,6 @@ background-color: rgb(78, 76, 76);
     border: none;
     background: none;
 }
-.addTaskButton:hover{
-    background-color: grey;
-    width: 150px;
-    height: 20px;
-    text-align: left;
-}
-.popupdiv-closed{
-    display: none;
-}
-.popupdiv-open{
+.popup-close{
     display: block;
 }
