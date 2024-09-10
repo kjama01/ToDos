@@ -14,6 +14,7 @@ class UI{
 
     static loadProjects(){
         let projectslist = document.getElementById("projects-list");
+        projectslist.innerHTML="";
         tab.forEach((element)=>{
         let projectname = document.createElement("button");
         projectname.innerHTML=`<i class="fa-brands fa-elementor"></i> ${element.name} `
@@ -21,27 +22,54 @@ class UI{
         projectslist.appendChild(projectname);
     });
 }
-
+ static getButtons() {
+    return {
+        inbox: document.querySelector(".inbox-button"),
+        today: document.querySelector(".today-button"),
+        addProjectButton: document.querySelector(".add-project"),
+        projectPopupSubmitBtn: document.getElementById("popupsubmitbutton"),
+        projectPopupCloseBtn: document.getElementById("popupclosebutton"),
+        popupInput: document.getElementById("popupinput"),
+        addProjectPopup: document.getElementById("addprojectpopup"),
+        rightpanelheader: document.getElementById("rightpanelheader"),
+    };
+}
     static initButtons(){
-        let inbox = document.querySelector(".inbox-button");
-        inbox.addEventListener('click',UI.loadInbox);
+        let buttons = UI.getButtons();
+        buttons.inbox.addEventListener('click',UI.loadInbox);
+        buttons.today.addEventListener('click',UI.loadToday);
 
-        let today = document.querySelector(".today-button");
-        let thisweek = document.querySelector(".thisweek-button");
+        buttons.addProjectButton.addEventListener('click',()=>{
+            buttons.addProjectButton.classList.toggle("popup-close");
+            buttons.addProjectPopup.classList.toggle("popup-close");
+            popupinput.value="";
+        });
+        buttons.projectPopupSubmitBtn.addEventListener('click',()=>{
+            tab.push(new project(popupinput.value));
+            UI.loadProjects();
+            UI.closePopups();
+        })  
+        buttons.projectPopupCloseBtn.addEventListener('click',UI.closePopups);
+    }
+    static closePopups(){
+        let addprojectpopup = document.getElementById("addprojectpopup");
+        addprojectpopup.classList.toggle("popup-close");
+        let addProjectButton = document.querySelector(".add-project");
+        addProjectButton.classList.toggle("popup-close");
 
-      
+        let addtaskpopup = document.getElementById("addtaskpopup");
+        // addtaskpopup.classList.toggle("popup-close");
+
     }
     static loadInbox(){
-        rightpanel.innerHTML=`<h1>Inbox</h1>`;
-        let addTaskButton = document.createElement("button");
-        addTaskButton.classList.add("addTaskButton");
-        addTaskButton.innerHTML=`<i class="fa-solid fa-plus"></i>
-        Add Task`;
-        addTaskButton.addEventListener('click',()=>{
-            
-        });
+        rightpanelheader.innerHTML="";
+        rightpanelheader.textContent=`Inbox`;
+        
 
-        rightpanel.appendChild(addTaskButton);
+    }
+    static loadToday(){
+        rightpanelheader.innerHTML="";
+        rightpanelheader.textContent=`Today`;
     }
 
 
