@@ -8,7 +8,8 @@ class UI{
 
     static loadElements(){
         UI.loadProjects();
-        UI.initButtons();
+        UI.initProjectsButtons();
+        UI.initBasicButtons();
         UI.loadInbox();
     }
 
@@ -21,51 +22,65 @@ class UI{
         projectname.classList.add("project-name-button");
         projectslist.appendChild(projectname);
     });
-}
- static getButtons() {
-    return {
-        inbox: document.querySelector(".inbox-button"),
-        today: document.querySelector(".today-button"),
-        addProjectButton: document.querySelector(".add-project"),
-        projectPopupSubmitBtn: document.getElementById("popupsubmitbutton"),
-        projectPopupCloseBtn: document.getElementById("popupclosebutton"),
-        popupInput: document.getElementById("popupinput"),
-        addProjectPopup: document.getElementById("addprojectpopup"),
-        rightpanelheader: document.getElementById("rightpanelheader"),
-    };
-}
-    static initButtons(){
-        let buttons = UI.getButtons();
-        buttons.inbox.addEventListener('click',UI.loadInbox);
-        buttons.today.addEventListener('click',UI.loadToday);
-
-        buttons.addProjectButton.addEventListener('click',()=>{
-            buttons.addProjectButton.classList.toggle("popup-close");
-            buttons.addProjectPopup.classList.toggle("popup-close");
+    }
+    static initBasicButtons(){
+        let inbox = document.querySelector(".inbox-button");
+        let today = document.querySelector(".today-button");
+        inbox.addEventListener('click',UI.loadInbox);
+        today.addEventListener('click',UI.loadToday);
+    }
+    static initProjectsButtons(){
+        let addProjectButton = document.querySelector(".add-project");
+        let projectPopupSubmitBtn = document.getElementById("popupsubmitbutton");
+        let projectPopupCloseBtn = document.getElementById("popupclosebutton");
+        let addProjectPopup = document.getElementById("addprojectpopup");
+        addProjectButton.addEventListener('click',()=>{
+            UI.closePopups();
+            addProjectButton.classList.add("popup-close");
+            addProjectPopup.classList.remove("popup-close");
             popupinput.value="";
         });
-        buttons.projectPopupSubmitBtn.addEventListener('click',()=>{
+        projectPopupSubmitBtn.addEventListener('click',()=>{
             tab.push(new project(popupinput.value));
             UI.loadProjects();
             UI.closePopups();
         })  
-        buttons.projectPopupCloseBtn.addEventListener('click',UI.closePopups);
+        projectPopupCloseBtn.addEventListener('click',UI.closePopups);
     }
     static closePopups(){
-        let addprojectpopup = document.getElementById("addprojectpopup");
-        addprojectpopup.classList.toggle("popup-close");
-        let addProjectButton = document.querySelector(".add-project");
-        addProjectButton.classList.toggle("popup-close");
-
-        let addtaskpopup = document.getElementById("addtaskpopup");
-        // addtaskpopup.classList.toggle("popup-close");
-
+        document.getElementById("addprojectpopup").classList.add("popup-close");
+        document.querySelector(".add-project").classList.remove("popup-close");
+        document.getElementById("addtaskpopup").classList.add("popup-close");
+        document.querySelector(".add-task").classList.remove("popup-close");
     }
+
     static loadInbox(){
         rightpanelheader.innerHTML="";
-        rightpanelheader.textContent=`Inbox`;
-        
+        rightpanelheader.innerHTML=`
+        <h3>Inbox</h3>	
+        <button class="add-task">
+                <i class="fa-solid fa-plus"></i>
+                Add Task
+        </button>
+        <div id="addtaskpopup" class="popup-close">
+        <input type="text" id="popuptaskinput"><br>
+        <button type="button" id="popuptasksubmitbutton">Add</button>
+        <button type="button" id="popuptaskclosebutton">Close</button>
+    </div>`
+    UI.initTaskButtons();
+    }
+    static initTaskButtons(){
+        let addtaskbutton = document.querySelector(".add-task");
+        let addtaskpopup = document.getElementById("addtaskpopup");
+        let popuptasksubmitbutton = document.getElementById("popuptasksubmitbutton");
+        let popuptaskclosebutton = document.getElementById("popuptaskclosebutton");
+        addtaskbutton.addEventListener('click',()=>{
+            UI.closePopups();
+            addtaskbutton.classList.add("popup-close");
+            addtaskpopup.classList.remove("popup-close");
+        });
 
+        popuptaskclosebutton.addEventListener('click',UI.closePopups);
     }
     static loadToday(){
         rightpanelheader.innerHTML="";
@@ -73,8 +88,9 @@ class UI{
     }
 
 
+ }
 
-};
+
 
 
 
