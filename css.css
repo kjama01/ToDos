@@ -9,7 +9,7 @@ body{
 #panel{
     width: 100%;
     height: 90px;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(38, 36, 36);
 }
 #bottom{
     display: grid;
@@ -17,10 +17,10 @@ body{
     flex-grow: 1;
 }
 #leftpanel{
-    background-color: grey;
+    background-color: rgb(164, 162, 162);
 }
 #rightpanel{
-    background-color: rgb(213, 213, 213);
+    background-color: rgb(241, 239, 239);
 }
 #upperpanel{
     display: flex;
@@ -77,4 +77,45 @@ background-color: rgb(78, 76, 76);
 }
 .popup-open{
     display: block;
+}
+.taskdiv{
+    width: 600px;
+    height: 35px;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+.taskdivpriority{
+    width: 600px;
+    height: 35px;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+
+}
+#inboxtasklist{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+span{
+    font-size: 26px;
+    font-weight: lighter;
+}
+.closed{
+    display: none;
+}
+.priority{
+    font-size: 20px;
+}
+#right{
+    display: flex;
+    gap: 20px;
+}
+.deletetask{
+    font-size: 20px;
 }
