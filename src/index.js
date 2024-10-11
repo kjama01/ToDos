@@ -1,6 +1,10 @@
 import project from './Project.js';
 import { format } from 'date-fns';
-formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true });
+
+const now = new Date();
+const formattedDate = format(now, 'dd/MM/yyyy');
+
+// console.log(`Formatted date: ${formattedDate}`);
 
 let tab = [];
 
@@ -173,6 +177,8 @@ class UI{
             if(event.key==="Enter" && dateinput.value!=""){
                 tab[0].tasks[date.dataset.index].setTaskdueDate(dateinput.value);
                 UI.loadInbox();
+                console.log(tab[0].tasks[date.dataset.index])
+                Inbox.todayTasks();
             }
         });      
     }
@@ -205,12 +211,30 @@ class UI{
     }
     static loadToday(){
         rightpanelheader.innerHTML="";
-        rightpanelheader.textContent=`Today`;
-    }
-
+        rightpanelheader.innerHTML=`Today<div id="todaytasklist"></div>`;
+        let inboxtasklist = document.getElementById("todaytasklist");
+        let todayTab = Inbox.todayTasks();
+    todayTab.forEach((element, index)=>{
+        let taskdiv = document.createElement("div");
+        const classPriority = !element.priority ? "fa-regular fa-star priority" : "fa-solid fa-star priority";
+        const className = !element.priority ? "taskdiv" : "taskdivpriority";
+        taskdiv.classList.add(className);
+        taskdiv.innerHTML=`
+        <div id="left">
+        <span class="elementtitle" dataindex="${index}">${element.title}</span>
+        </div>
+        <div id="right">
+        <span class="datetext" data-index="${index}">${element.dueDate}</span>
+        <span><i class="${classPriority}" data-index=${index}></i></span>
+        <span><i class="fa-solid fa-xmark deletetask" data-index=${index}></i></span>
+        </div>`
+        //innerHTML niezalecane ale w tym przypadku git
+        inboxtasklist.appendChild(taskdiv);
+    });
+    UI.initTaskButtonsListeners()
 
  }
-
+}
 
 
 

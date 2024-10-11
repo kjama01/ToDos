@@ -1,4 +1,6 @@
 import tasks from './Task.js';
+import { format } from 'date-fns';
+
 export default class Project{ 
 
 constructor(name){
@@ -25,6 +27,11 @@ deleteTask(task){
 findTask(task){
     return (this.tasks.find(element => element.title === task));
 }
-
+todayTasks(){
+    const now = new Date();
+    const formattedDate = format(now, 'yyyy-MM-dd');
+    let today = this.tasks.filter(task=>task.dueDate===formattedDate);
+    return today;
+}
 
 }
