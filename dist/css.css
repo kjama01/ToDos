@@ -49,7 +49,7 @@ body{
     background: none;
     white-space: nowrap;
 }
-.inbox-button:hover,.today-button:hover,.thisweek-button:hover,.add-project:hover{
+.inbox-button:hover,.today-button:hover,.thisweek-button:hover,.add-project:hover,.project-name-button:hover{
 background-color: rgb(78, 76, 76);
 }
 #projects-list{
@@ -118,4 +118,9 @@ span{
 }
 .deletetask{
     font-size: 20px;
+}
+.projectNameInfo{
+    position: relative;
+    right: 40;
+    top: 0;
 }
