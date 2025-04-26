@@ -17,8 +17,8 @@ body {
 }
 #panel img {
   width: 150px;
-  filter: grayscale(100%); /* szary efekt na logo */
-  opacity: 0.9; /* lekka przezroczystość */
+  filter: grayscale(100%); 
+  opacity: 0.9;
   margin-left: 20px;
 }
 #bottom {
