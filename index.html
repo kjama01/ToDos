@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/14a94f0d7a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/14a94f0d7a.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="bundle.js" type="module" defer></script>
-    <link rel="stylesheet" href="css.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
     <div id="all">
-        <div id="panel">
-
-        </div>
-        <div id="bottom">
+      <div id="panel"><img src="/images/image.png" /></div>
+      <div id="bottom">
         <div id="leftpanel">
-            <div id="upperpanel">
+          <div id="upperpanel">
             <button class="inbox-button">
-                <i class="fa-solid fa-inbox"></i>
-                Inbox
+              <i class="fa-solid fa-inbox"></i>
+              All tasks
             </button>
             <button class="today-button">
-                <i class="fa-solid fa-calendar-week"></i>
-                Today
+              <i class="fa-solid fa-calendar-week"></i>
+              Today
             </button>
             <button class="thisweek-button">
-                <i class="fa-solid fa-calendar"></i>
-                This Week
+              <i class="fa-solid fa-calendar"></i>
+              This Week
             </button>
-        </div>
-        <div id="downpanel">
+          </div>
+          <div id="downpanel">
             <h1>Projects</h1>
-            <div id="projects-list">
-
-            </div>
+            <div id="projects-list"></div>
             <button class="add-project">
-                <i class="fa-solid fa-plus"></i>
-                Add Project
+              <i class="fa-solid fa-plus"></i>
+              Add Project
             </button>
             <div id="addprojectpopup" class="popup-close">
-                <input type="text" id="popupinput">
-                <button type="button" id="popupsubmitbutton">Add</button>
-                <button type="button" id="popupclosebutton">Close</button>
+              <input type="text" id="popupinput" />
+              <button type="button" id="popupsubmitbutton">Add</button>
+              <button type="button" id="popupclosebutton">Close</button>
             </div>
-        </div>
+          </div>
         </div>
         <div id="rightpanel">
-            <span id="rightpanelheader"></span>
-            
-    
+          <span id="rightpanelheader"></span>
         </div>
+      </div>
     </div>
-    </div>
-</body>
+  </body>
 </html>
