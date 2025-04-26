@@ -1,16 +1,22 @@
-const path = require('path');
+const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
   devServer: {
-    static: path.join(__dirname, 'dist'), // Ścieżka do folderu, w którym znajduje się index.html
+    static: path.join(__dirname, "dist"),
     compress: true,
-    port: 9000, // Możesz ustawić dowolny port
+    port: 3000,
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: "src/images", to: "images" }],
+    }),
+  ],
 };
