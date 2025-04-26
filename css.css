@@ -17,7 +17,7 @@ body {
 }
 #panel img {
   width: 150px;
-  filter: grayscale(100%); 
+  filter: grayscale(100%);
   opacity: 0.9;
   margin-left: 20px;
 }
@@ -47,6 +47,10 @@ body {
   gap: 5px;
   margin-top: 20px;
   padding: 30px;
+}
+#addprojectpopup {
+  display: flex;
+  flex-direction: column;
 }
 #downpanel {
   display: flex;
@@ -100,7 +104,7 @@ body {
 }
 
 .popup-close {
-  display: none;
+  display: none !important;
 }
 .popup-open {
   display: block;
