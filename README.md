@@ -1,2 +1,2 @@
 
-Demo version of my 2024 Odin ToDo Project (https://donquellso.github.io/ToDos/)
+Demo version of my 2024 Odin ToDo Project [Demo](https://kjama01.github.io/ToDos/)
